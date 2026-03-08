@@ -75,9 +75,9 @@ class MLPClassifier(nn.Module):
         super().__init__()
 
         self.network = nn.Sequential(
-            nn.Linear(3 * h * w, 256),
+            nn.Linear(3 * h * w, 128),
             nn.ReLU(),
-            nn.Linear(256, num_classes),
+            nn.Linear(128, num_classes),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -97,7 +97,7 @@ class MLPClassifierDeep(nn.Module):
         h: int = 64,
         w: int = 64,
         num_classes: int = 6,
-        hidden_dim: int = 256,
+        hidden_dim: int = 128,
         num_layers: int = 4,
     ):
         """
@@ -141,7 +141,7 @@ class MLPClassifierDeepResidual(nn.Module):
         h: int = 64,
         w: int = 64,
         num_classes: int = 6,
-        hidden_dim: int = 256,
+        hidden_dim: int = 128,
         num_layers: int = 4,
     ):
         """
